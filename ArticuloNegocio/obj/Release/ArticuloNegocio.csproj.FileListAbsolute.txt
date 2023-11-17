@@ -1,0 +1,9 @@
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ArticuloNegocio\bin\Release\ArticuloNegocio.dll
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ArticuloNegocio\bin\Release\ArticuloNegocio.pdb
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ArticuloNegocio\bin\Release\ClassLibrary1.dll
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ArticuloNegocio\bin\Release\ClassLibrary1.pdb
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ArticuloNegocio\obj\Release\ArticuloNegocio.csproj.AssemblyReference.cache
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ArticuloNegocio\obj\Release\ArticuloNegocio.csproj.CoreCompileInputs.cache
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ArticuloNegocio\obj\Release\ArticuloNegocio.csproj.CopyComplete
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ArticuloNegocio\obj\Release\ArticuloNegocio.dll
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ArticuloNegocio\obj\Release\ArticuloNegocio.pdb

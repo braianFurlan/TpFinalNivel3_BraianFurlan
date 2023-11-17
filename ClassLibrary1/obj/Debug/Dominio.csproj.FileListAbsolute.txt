@@ -1,0 +1,12 @@
+C:\Users\braia\source\repos\TPFinalNivel2_FurlanBraian\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\braia\source\repos\TPFinalNivel2_FurlanBraian\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\braia\source\repos\TPFinalNivel2_FurlanBraian\ClassLibrary1\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\braia\source\repos\TPFinalNivel2_FurlanBraian\ClassLibrary1\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\braia\source\repos\TPFinalNivel2_FurlanBraian\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\braia\source\repos\TPFinalNivel2_FurlanBraian\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ClassLibrary1\obj\Debug\Dominio.csproj.AssemblyReference.cache
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ClassLibrary1\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+D:\ultima formateada\Nueva carpeta\TpFinalNivel3_BraianFurlan\TpFinalNivel3_BraianFurlan\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
