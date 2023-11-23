@@ -226,16 +226,15 @@ namespace ArticuloNegocio
 
             try
             {
-                //string consulta = "select A.Id, Codigo,Nombre, a.Descripcion,c.Descripcion Categoria,ImagenUrl,a.Precio,m.Descripcion marca,a.IdCategoria,a.IdMarca,a.Id from ARTICULOS a , CATEGORIAS c, MARCAS m where a.IdCategoria = c.Id and m.Id = a.IdMarca and ";
-                string consulta = "Select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion TipoMarca, C.Descripcion TipoCategoria, ImagenUrl, A.Precio, A.IdMarca, A.IdCategoria From ARTICULOS A, CATEGORIAS C, MARCAS M where C.Id = A.IdCategoria AND A.IdCategoria = M.Id AND ";
-                if (campo == "Codigo")
+                string consulta = ("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio, A.IdMarca, A.IdCategoria from ARTICULOS A, CATEGORIAS C, MARCAS M where A.IdMarca = M.id and A.IdCategoria = C.Id and ");
+                if (campo == "Código")
                 {
                     switch (criterio)
                     {
-                        case "Comienza con":
-                            consulta += "Codigo like '" + filtro + "%' ";
+                        case "Comienza":
+                            consulta += "Codigo like '" + filtro + "%'";
                             break;
-                        case "Termina con":
+                        case "Termina":
                             consulta += "Codigo like '%" + filtro + "'";
                             break;
                         default:
@@ -246,54 +245,5 @@ namespace ArticuloNegocio
                 else if (campo == "Precio")
                 {
 
-                    switch (criterio)
-                    {
-                        case "Mayor a":
-                            consulta += "a.Precio > " + filtro;
-                            break;
-                        case "Menor a":
-                            consulta += "a.Precio < " + filtro;
-                            break;
-                        default:
-                            consulta += "a.Precio = " + filtro;
-                            break;
-                    }
-                }
-
-
-
-
-                datos.setearConsulta(consulta);
-                 datos.ejecutarLectura();
-                while (datos.Lector.Read())
-                {
-                    Articulo aux = new Articulo();
-                    aux.Id = (int)datos.Lector["Id"];
-                    aux.codigoArticulo = (string)datos.Lector["Codigo"];
-                    aux.nombre = (string)datos.Lector["nombre"];
-                    aux.descripcion = (string)datos.Lector["Descripcion"];
-                    aux.url_imagen = (string)datos.Lector["ImagenUrl"];
-                    aux.categoria = new CATEGORIA();
-                    aux.categoria.id = (int)datos.Lector["IdCategoria"];
-                    aux.categoria.descripcion = (string)datos.Lector["Categoria"];
-                    aux.marca = new MARCA();
-                    aux.marca.id = (int)datos.Lector["IdMarca"];
-                    aux.marca.descripcion = (string)datos.Lector["marca"];
-                    aux.precio = (decimal)datos.Lector["Precio"];
-
-                    lista.Add(aux);
-                }
-
-
-
-
-                return lista;
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-        }
     }
 }
