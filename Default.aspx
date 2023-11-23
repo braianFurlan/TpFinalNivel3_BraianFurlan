@@ -18,7 +18,7 @@
 
                <div class="col">
          <div class="card">
-      <img src="<%#Eval ("url_imagen") %>"   class="card-img-top" Style="max-width:500px;max-height:600px"; alt="...">
+      <img src="<%#Eval ("url_imagen") %>"   class="card-img-top" Style="max-width:500px;max-height:600px"; alt="..."onerror="this.src='https://www.mansor.com.uy/wp-content/uploads/2020/06/imagen-no-disponible2.jpg'">
       <div class="card-body">
              <h5 class="card-title"><%#Eval("nombre")  %></h5>
              <p class="card-text"><%#Eval("descripcion") %></p>

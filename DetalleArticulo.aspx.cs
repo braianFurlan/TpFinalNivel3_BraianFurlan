@@ -62,7 +62,7 @@ namespace TpFinalNivel3_BraianFurlan
                     txtMarca.Enabled = false;
                     txtPrecio.Text = seleccionado.precio.ToString();
                     txtPrecio.ReadOnly = true;
-                    //CargarImagen();
+                    
                     txtImagenurl_TextChanged(sender, e);
                 }
             }
@@ -76,6 +76,7 @@ namespace TpFinalNivel3_BraianFurlan
 
         protected void txtImagenurl_TextChanged(object sender, EventArgs e)
         {
+          
             imgArticulo.ImageUrl = txtImagenurl.Text;
         }
     }

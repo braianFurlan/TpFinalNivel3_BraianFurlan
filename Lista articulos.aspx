@@ -14,8 +14,9 @@
     <asp:TextBox runat="server" ID="filtro" AutoPostBack="true" OnTextChanged="filtro_TextChanged" />
     <asp:CheckBox runat="server" Text="Filtro Avanzado" CssClass=""
         ID="chkFiltroAvanzado" AutoPostBack="true" OnCheckedChanged="chkFiltroAvanzado_CheckedChanged" />
+    
     <asp:Button Text="Limpiar" runat="server" ID="btnLimpiarFiltroRapido" CssClass="btn btn-primary" OnClick="btnLimpiarFiltroRapido_Click" />
-
+    
     <% if (filtroAvanzado)
         { %>
 

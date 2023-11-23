@@ -57,9 +57,9 @@
                 <asp:TextBox runat="server" TextMode="MultiLine" ID="txtDescripcion" class="form-control" />
             </div>
             <div class="mb-3">
-                <label for="txtUrlImagen" class="form-label">Url Imagen</label>
+                <label for="txtUrlImagen" class="form-label">Imagen</label>
                 <asp:TextBox runat="server" ID="txtImagenurl" CssClass="form-control" AutoPostBack="true" OnTextChanged ="txtImagenurl_TextChanged" />      
-                <asp:Image ImageUrl="https://royaltekitaly.com/articulos/imagenes/no-disponible.png"
+                <asp:Image url_imagen="https://royaltekitaly.com/articulos/imagenes/no-disponible.png"
                     runat="server" ID="imgArticulo" Width="60%" />
 
             </div>
