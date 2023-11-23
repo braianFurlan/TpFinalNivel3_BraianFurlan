@@ -14,6 +14,7 @@
     <asp:TextBox runat="server" ID="filtro" AutoPostBack="true" OnTextChanged="filtro_TextChanged" />
     <asp:CheckBox runat="server" Text="Filtro Avanzado" CssClass=""
         ID="chkFiltroAvanzado" AutoPostBack="true" OnCheckedChanged="chkFiltroAvanzado_CheckedChanged" />
+    <asp:Button Text="Limpiar" runat="server" ID="btnLimpiarFiltroRapido" CssClass="btn btn-primary" OnClick="btnLimpiarFiltroRapido_Click" />
 
     <% if (filtroAvanzado)
         { %>
@@ -33,21 +34,24 @@
         </div>
         <div class="col-3">
             <div class="mb-3">
-                <asp:Label Text="Criterio" ID="lblCriterio" runat="server" />
+                <asp:Label Text="Criterio" ID="lblCriterio" runat="server" AutoPostback="true" />
                 <asp:DropDownList runat="server" ID="ddlCriterio" CssClass="form-control"></asp:DropDownList>
+                <asp:RequiredFieldValidator ErrorMessage="seleccione criterio" ControlToValidate="ddlCriterio" runat="server" />
             </div>
         </div>
         <div class="col-3">
             <div class="mb-3">
                 <asp:Label Text="Filtro" runat="server" />
                 <asp:TextBox runat="server" ID="txtFiltroAvanzado" CssClass="form-control" />
+                <asp:RequiredFieldValidator ErrorMessage="Ingrese la consulta" ControlToValidate="txtFiltroAvanzado" runat="server" ValidationGroup="ValidacionGeneral" />
             </div>
         </div>
          </div>
           <div class="row">
         <div class="col-3">
             <div class="mb-3">
-                <asp:Button Text="Buscar" runat="server" ID="btnBuscar" CssClass="btn btn-primary" OnClick="btnBuscar_Click" />
+                <asp:Button Text="Buscar" runat="server" ID="btnBuscar" CssClass="btn btn-primary" ValidationGroup="ValidacionGeneral" OnClick="btnBuscar_Click" />
+                <asp:Button Text="Limpiar" runat="server" ID="btnLimpiar" CssClass="btn btn-primary" OnClick="btnLimpiar_Click" />
             </div>
         </div>
         <% } %>

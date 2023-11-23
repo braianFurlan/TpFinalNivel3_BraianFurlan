@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
@@ -227,23 +228,70 @@ namespace ArticuloNegocio
             try
             {
                 string consulta = ("select A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, ImagenUrl, Precio, A.IdMarca, A.IdCategoria from ARTICULOS A, CATEGORIAS C, MARCAS M where A.IdMarca = M.id and A.IdCategoria = C.Id and ");
-                if (campo == "Código")
+                if (campo == "Codigo")
                 {
                     switch (criterio)
                     {
                         case "Comienza":
-                            consulta += "Codigo like '" + filtro + "%'";
+                            consulta += "Codigo LIKE '" + filtro + "%'";
                             break;
                         case "Termina":
-                            consulta += "Codigo like '%" + filtro + "'";
+                            consulta += "Codigo LIKE '%" + filtro + "'";
                             break;
                         default:
-                            consulta += "Codigo like '%" + filtro + "%'";
+                            consulta += "Codigo LIKE '%" + filtro + "%'";
                             break;
                     }
                 }
                 else if (campo == "Precio")
                 {
+                    switch (criterio)
+                    {
+                        case "Mayor":
+                            consulta += "Precio > @Precio";
+                            break;
+                        case "Menor":
+                            consulta += "Precio < @Precio";
+                            break;
+                        default:
+                            consulta += "Precio = @Precio";
+                            break;
+                    }
 
+                    datos.setearParametro("@Precio", decimal.Parse(filtro));
+                }
+
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.codigoArticulo = (string)datos.Lector["Codigo"];
+                    aux.nombre = (string)datos.Lector["nombre"];
+                    aux.descripcion = (string)datos.Lector["Descripcion"];
+                    aux.url_imagen = (string)datos.Lector["ImagenUrl"];
+                    aux.categoria = new CATEGORIA();
+                    aux.categoria.id = (int)datos.Lector["IdCategoria"];
+                    aux.categoria.descripcion = (string)datos.Lector["Categoria"];
+                    aux.marca = new MARCA();
+                    aux.marca.id = (int)datos.Lector["IdMarca"];
+                    aux.marca.descripcion = (string)datos.Lector["marca"];
+                    aux.precio = (decimal)datos.Lector["Precio"];
+
+                    lista.Add(aux);
+                }
+
+
+
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

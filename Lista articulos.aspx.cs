@@ -17,7 +17,8 @@ namespace TpFinalNivel3_BraianFurlan
             if (!Seguridad.esAdmin(Session["trainee"]))
             {
                 Session.Add("error", "Se requieren permisos de admin para acceder a esta pantalla.");
-                Response.Redirect("Error.aspx",false);
+                Response.Redirect("Error.aspx", false);
+                return;
             }
 
             //if (Session["usuario"] == null)
@@ -26,17 +27,19 @@ namespace TpFinalNivel3_BraianFurlan
             //    Response.Redirect("error.aspx",false);
             // }
             filtroAvanzado = chkFiltroAvanzado.Checked;
+            
             if (!IsPostBack)
             {
 
-            
-              
-              Negocio negocio = new Negocio();
-              Session.Add("listaArticulos", negocio.listar());
-              dgvArticulo.DataSource = Session["listaArticulos"];
-              dgvArticulo.DataBind();
+                ddlCampo_SelectedIndexChanged(sender, new EventArgs());
+
+                Negocio negocio = new Negocio();
+                Session.Add("listaArticulos", negocio.listar());
+                dgvArticulo.DataSource = Session["listaArticulos"];
+                dgvArticulo.DataBind();
             }
         }
+
 
         protected void dgvArticulo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -47,9 +50,9 @@ namespace TpFinalNivel3_BraianFurlan
 
         protected void filtro_TextChanged(object sender, EventArgs e)
         {
-            List<Articulo> lista = (List<Articulo>) Session["listaArticulos"];
-            List<Articulo> listaFiltrada = lista.FindAll( x => x.nombre.ToUpper().Contains(filtro.Text.ToUpper())); 
-            dgvArticulo.DataSource= listaFiltrada;
+            List<Articulo> lista = (List<Articulo>)Session["listaArticulos"];
+            List<Articulo> listaFiltrada = lista.FindAll(x => x.nombre.ToUpper().Contains(filtro.Text.ToUpper()));
+            dgvArticulo.DataSource = listaFiltrada;
             dgvArticulo.DataBind();
         }
 
@@ -63,18 +66,18 @@ namespace TpFinalNivel3_BraianFurlan
         {
 
             ddlCriterio.Items.Clear();
-            if (ddlCampo.SelectedItem.ToString() == "Precio")
+            if (ddlCampo.SelectedItem.ToString() == "Codigo")
             {
-                ddlCriterio.Items.Add("Igual a");
-                ddlCriterio.Items.Add("Mayor a");
-                ddlCriterio.Items.Add("Menor a");
+                ddlCriterio.Items.Add("Contiene");
+                ddlCriterio.Items.Add("Comienza con");
+                ddlCriterio.Items.Add("termina con");
 
             }
             else
             {
-                ddlCriterio.Items.Add("Contiene");
-                ddlCriterio.Items.Add("Comienza con");
-                ddlCriterio.Items.Add("Termina con");
+                ddlCriterio.Items.Add("mayor a");
+                ddlCriterio.Items.Add("menor a");
+                ddlCriterio.Items.Add("igual a");
 
             }
         }
@@ -93,6 +96,30 @@ namespace TpFinalNivel3_BraianFurlan
                 Session.Add("error", ex.ToString());
                 Response.Redirect("error.aspx");
             }
+        }
+        public void CargarValores()
+        {
+            Negocio negocio = new Negocio();
+            Session.Add("listaArticulos", negocio.listar());
+            dgvArticulo.DataSource = Session["listaArticulos"];
+            dgvArticulo.DataBind();
+        }
+
+        protected void btnLimpiar_Click(object sender, EventArgs e)
+        {
+           
+            txtFiltroAvanzado.Text = string.Empty;
+            ddlCampo.SelectedIndex = 0; 
+            ddlCriterio.SelectedIndex = 0;
+            CargarValores();
+
+        }
+
+        protected void btnLimpiarFiltroRapido_Click(object sender, EventArgs e)
+        {
+           
+            CargarValores();
+            filtro.Text = string.Empty;
         }
     }
 }
